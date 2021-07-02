@@ -1,0 +1,33 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{%block css_files%}
+    <link rel="stylesheet" href="{% static "challenges_list/index.css" %}">
+    <link rel="stylesheet" href="{% static "challenges_list/header.css" %}">
+{%endblock%}
+
+{%block page_title%}All Challenges{%endblock%}
+{%block page_body%}
+    {% include "challenges_list/includes/header.html" %}
+    <ul>
+    {% for month in months %}
+    <li><a href="{% url "monthly_challenges" month=month%}">{{month|title}}</a></li>
+    {% endfor %}
+    </ul>
+{%endblock%}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Challenges</title>
+</head>
+<body>
+    <ul>
+    {% for month in months %}
+    <li><a href="{% url "monthly_challenges" month=month%}">{{month|title}}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html> {% endcomment %}

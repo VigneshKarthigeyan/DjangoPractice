@@ -1,0 +1,36 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{%block css_files%}
+    <link rel="stylesheet" href="{% static "challenges_list/challenge.css" %}">
+    <link rel="stylesheet" href="{% static "challenges_list/header.css" %}">
+{%endblock%}
+
+{%block page_title%}{{month_name|title}} Challenge{%endblock%}
+
+{%block page_body%}
+    {% include "challenges_list/includes/header.html" %}
+    <h1>{{month_name|title}} Challenge</h1>
+    {%if challenge is not None%}
+    <h2>{{challenge}}</h2>
+    {%else%}
+    <p class="not_found">There is no challenge for this month!</p>
+    {%endif%}
+{%endblock%}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{month_name|title}} Challenge</title>
+</head>
+<body>
+    <h1>{{month_name|title}} Challenge</h1>
+    {%if challenge is not None%}
+    <h2>{{challenge}}</h2>
+    {%else%}
+    <p>There is no challenge for this month!</p>
+    {%endif%}
+</body>
+</html> {% endcomment %}

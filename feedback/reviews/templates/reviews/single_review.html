@@ -1,0 +1,7 @@
+{% extends 'reviews/base_template.html' %}
+
+{% block title %}Review Detail{% endblock title %}
+
+{% block body %}
+    {{review.review_text|linebreaks}}
+{% endblock body %}
